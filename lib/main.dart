@@ -1,8 +1,10 @@
 import 'dart:io';
 
 int count = 1;
-
 void main() {
+  count = 1;
+
+  //new file
   File studentsFile = File('students.txt');
   if (!studentsFile.existsSync()) {
     studentsFile.createSync();
