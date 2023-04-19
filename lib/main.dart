@@ -2,12 +2,15 @@ import 'dart:io';
 
 int count = 1;
 void main() {
-  count = 1;
-
   //new file
   File studentsFile = File('students.txt');
   if (!studentsFile.existsSync()) {
     studentsFile.createSync();
+  } else {
+    var lines = studentsFile.readAsLinesSync();
+    var line = lines[lines.length - 1];
+    var parts = line.split(',');
+    count = int.tryParse(parts[0])! + 1;
   }
 
   while (true) {
